@@ -1,43 +1,19 @@
 
 
-var x = Math.floor(Math.random() * 100) + 1;
-var y=0;
-var i=0;
-rep="O";
-
-do
-   do {             
-            y = Number(prompt("Donnez un nombre entre 1 et 100:"));
-
-            if (y<x)
-            {
-                console.log(y+" est trop petit!");
-            }
-            else if (y>x)
-            {
-                console.log(y+" est trop grand!");
-            }
-            else if (Number.isNaN(y)){
-                alert("il faut donner un nombre!");
-                            
-            }
-            else if (y<1||y>100){
-                alert("il faut donner un nombre compris entre 1 et 100!");
-            }
-           i++;
-        
-    
-   } while(i<6 &&  y!==x);
-
-   if(y===x)
-   {
-      console.log("Bravo! Le nombre recherché est " + x );
-   }
-
-   else
-   {
-      console.log("vous avez échoué! Le nombre recherché est" + x);
-   } 
-   
-   rep = (prompt("voulez vous recommencer le jeu ? [O/N]"));
-while (rep=="O");
+var solution = Math.floor(Math.random() * 100) + 1;
+var nombre = Number(prompt("Entrez un nombre compris entre 1 et 100:"));
+var tentative = 0;
+ 
+while((nombre !== solution) && (tentative < 6)){
+  if (nombre > solution)
+    console.log(nombre + " est trop grand");
+  else (nombre < solution)
+    console.log(nombre + " est trop petit");
+  tentative++;
+  var nombre = Number(prompt("Entrez un nombre:"));
+}
+ 
+if(nombre == solution)
+  console.log("Bravo ! La solution est " + solution);
+else
+  console.log("Vous avez perdu!");
